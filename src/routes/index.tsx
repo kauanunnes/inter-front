@@ -8,13 +8,13 @@ import Signup from '../pages/Signup';
 import Dashboard from '../pages/Dashboard';
 
 
-const Router =()=>{
+const Router = () => {
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Signin/>}/>
-                <Route path="/signup" element={<Signup/>}/>
-                <Route path="/dashboard" element={<Dashboard/>}/>
+                <Route path="/" element={<Signin />}/>
+                <Route path="/signup" element={<Signup />}/>
+                <Route path="/dashboard" element={<Dashboard />}/>
             </Routes>
         </BrowserRouter>
     )
