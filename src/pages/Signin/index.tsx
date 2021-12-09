@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+
 import { Wrapper, Background, ButtonContainer, InputContainer } from './styles'
 import background from '../../assets/images/home-page.png'
 import logo from '../../assets/images/inter-logo.png'
@@ -7,13 +8,30 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import { Link, useNavigate } from 'react-router-dom';
 
+import useAuth from '../../hooks/useAuth'
+
 const Signin= () => {
 
-    const navigate = useNavigate()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-    const handleToSignIn = () => {
-      navigate('/dashboard')
+  const navigate = useNavigate()
+  const {userSignIn} = useAuth()
+
+  const handleToSignIn = async () => {
+    const data = {
+      email,
+      password
     }
+    
+    const response = await userSignIn(data)
+
+    if (response.id) {
+      navigate('/dashboard')
+      return
+    }
+  }
+
 
     return(
         <Wrapper>
@@ -21,8 +39,8 @@ const Signin= () => {
             <Card width="403px">
               <img src={logo} alt="logo inter" width={172} height={61} />
               <InputContainer>
-                <Input placeholder="EMAIL" type="text" />
-                <Input placeholder="SENHA" type="password" />
+                <Input placeholder="EMAIL" type="text" value={email} onChange={e => setEmail(e.target.value)}/>
+                <Input placeholder="SENHA" type="password" value={password} onChange={e => setPassword(e.target.value)}/>
               </InputContainer>
               <ButtonContainer>
                 <Button type="button" onClick={handleToSignIn}>
