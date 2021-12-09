@@ -4,6 +4,7 @@ import Card from '../../components/Card';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import { BodyContainer, DashboardBackground, InlineContainer, InlineTitle} from './styles'
+import Statement from './Statement'
 
 const Dashboard = () => {
     const wallet = 5000;
@@ -47,6 +48,7 @@ const Dashboard = () => {
                     <InlineTitle>
                       <h2 className="h2">Extrato da conta</h2>
                     </InlineTitle>
+                    <Statement />
                   </Card>
               </div>
             </BodyContainer>
