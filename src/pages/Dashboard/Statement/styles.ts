@@ -21,7 +21,7 @@ export const StatementItemInfo = styled.div`
 `
 
 export const StatementItemImage = styled.div<{
-  type: 'pay' | 'received'
+  type: 'paid' | 'received'
 }>`
   width: 60px;
   height: 60px;
@@ -37,5 +37,5 @@ export const StatementItemImage = styled.div<{
 
   border-radius: 10px;
 
-  background-color: ${({theme, type}) => type === 'pay' ? theme.colors.red : theme.colors.green};
+  background-color: ${({theme, type}) => type === 'paid' ? theme.colors.red : theme.colors.green};
 `

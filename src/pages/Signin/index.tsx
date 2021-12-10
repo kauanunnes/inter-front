@@ -43,7 +43,7 @@ const Signin= () => {
                 <Input placeholder="SENHA" type="password" value={password} onChange={e => setPassword(e.target.value)}/>
               </InputContainer>
               <ButtonContainer>
-                <Button type="button" onClick={handleToSignIn}>
+                <Button type="submit" onClick={handleToSignIn}>
                   ENTRAR
                 </Button>
                 <p>Ainda não é cadastrado? <Link to="/signup">Cadastre-se já</Link></p>
